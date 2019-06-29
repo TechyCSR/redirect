@@ -1,0 +1,18 @@
+<html>
+<body>
+    <p>Ready to redirect <span id='tictak'><span></p>
+</body>
+<script>
+    var tictak = 5;
+    var target = new URLSearchParams(window.location.search).get("target") || "";
+    if (target.startsWith("http") || target.startsWith("https")) {
+        setInterval(() => {
+            document.getElementById("tictak").innerHTML = tictak + " s";
+            if (tictak == 0) {
+                window.location.href = target;
+            }
+            tictak = tictak - 1;
+        }, 1000);
+    }
+</script>
+</html>
